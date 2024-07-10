@@ -1,0 +1,108 @@
+/* src/components/HomePage.css */
+
+.home-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background: linear-gradient(130deg, #99b657, #6e89c2);
+  color: white;
+  font-family: 'Roboto', sans-serif;
+
+  /* Цвет фона страницы */
+
+
+}
+
+.logo-container {
+  margin-bottom: 20px;
+}
+
+.company-description {
+  max-width: 600px;
+  text-align: center;
+  font-size: 1.2rem;
+  color: #666;
+  /* Цвет описания */
+  line-height: 1.6;
+  margin-bottom: 30px;
+  color: white;
+}
+
+.button-container {
+  display: flex;
+  gap: 20px;
+}
+
+.custom-button {
+  padding: 10px 20px;
+  font-size: 2.5rem;
+  color: #fff;
+  background-color: #1a75ff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.custom-button:hover {
+  background-color: #145bb5;
+  transform: scale(1.05);
+}
+
+.supplier-button {
+  background-color: #28a745;
+  font-size: 400;
+  /* Зеленый цвет для кнопки "Я поставщик" */
+}
+
+.supplier-button:hover {
+  background-color: #218838;
+}
+
+.hero-section {
+  text-align: center;
+}
+
+
+.enter-button {
+  background-color: #b0b92cc0;
+
+}
+
+.enter-button:hover {
+  background-color: #c5da0e;
+
+}
+
+.video-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
+
+.hero-section .company-name {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+  font-family: 'Merriweather', serif;
+  font-weight: 700;
+}
+
+.hero-section .company-slogan {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+}
+
+.company-description p {
+  font-size: 1rem;
+  margin-bottom: 2rem;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+}
