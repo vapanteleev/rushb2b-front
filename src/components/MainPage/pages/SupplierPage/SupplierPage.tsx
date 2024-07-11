@@ -36,7 +36,7 @@ const SupplierRegistration: React.FC = () => {
         productTypes: productTypes.map(p => p.value),
         country,
       }).then((response:any)=>{
-        navigate(`/supplier-profile/${response?.data?.user?._id}`);
+        navigate(`/supplier/${response?.data?.user?._id}`);
 
       });
 

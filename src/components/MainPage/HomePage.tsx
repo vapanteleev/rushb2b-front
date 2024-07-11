@@ -6,7 +6,7 @@ const HomePage: React.FC = () => {
     const navigate = useNavigate();
 
     const handleSupplierClick = () => {
-        navigate('/supplier');
+        navigate('/supplier-login');
     };
 
     const handleBuyerClick = () => {

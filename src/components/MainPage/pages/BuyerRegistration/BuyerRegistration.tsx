@@ -16,6 +16,8 @@ const BuyerRegistration: React.FC<Props> = () => {
   const [password, setPassword] = useState<string>('');
   const [companyName, setCompanyName] = useState<string>('');
   const [country, setCountry] = useState<string>('');
+  const [phoneNumber, setPhoneNumber] = useState('');
+
   const activitiesOptionsMock: { value: string; label: string }[] = [
     { value: 'Металлургия', label: 'Металлургия' },
     { value: 'Горнодобыча', label: 'Горнодобыча' },
@@ -56,6 +58,7 @@ const BuyerRegistration: React.FC<Props> = () => {
         role: 'buyer',
         companyName,
         country,
+        phoneNumber,
         activities: mapedActivities,
       }),
     });
@@ -179,6 +182,19 @@ const BuyerRegistration: React.FC<Props> = () => {
               }}
               className="multi-select"
               classNamePrefix="select"
+            />
+          </motion.div>
+          <motion.div
+            whileHover={{ scale: 1.1 }}
+            className="form-group"
+          >
+            <label>Номер Телефона:</label>
+            <input
+
+              type="text"
+              value={phoneNumber}
+              onChange={(e) => setPhoneNumber(e.target.value)}
+              required
             />
           </motion.div>
           <motion.button
