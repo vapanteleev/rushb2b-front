@@ -24,8 +24,10 @@ const HomePage: React.FC = () => {
             },
 
         });
-        alert(response + ": response from firebase")
-        console.log(response, "response from firebase")
+        // Преобразуем ответ в текст
+        const data = await response.text();
+
+        alert(data + ": response from firebase");
 
     };
 
