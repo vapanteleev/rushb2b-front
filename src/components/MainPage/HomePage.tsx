@@ -24,6 +24,7 @@ const HomePage: React.FC = () => {
             },
 
         });
+        alert(response + ": response from firebase")
         console.log(response, "response from firebase")
 
     };
