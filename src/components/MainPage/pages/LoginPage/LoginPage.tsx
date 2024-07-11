@@ -86,7 +86,7 @@ const LoginPage = () => {
       const response = await axios.post('http://localhost:4000/api/login', { email, password });
       console.log(response.data); // Обработка успешного входа
       if (response?.data) {
-        navigate(`/buyer/${response?.data?.userId}`);
+        navigate(`/${response?.data?.data?.role}/${response?.data?.data?.userId}`);
 
       }
     } catch (error: any) {

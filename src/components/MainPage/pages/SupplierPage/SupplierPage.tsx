@@ -1,101 +1,91 @@
 import React, { useState } from 'react';
-import { motion } from 'framer-motion';
-import './SupplierPage.css';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
+import './SupplierPage.css'
+import Select from 'react-select'
+import countryList from 'react-select-country-list'
 
-const SupplierPage = () => {
+const productOptions = [
+  { value: 'Металлургия', label: 'Металлургия' },
+  { value: 'Электроника', label: 'Электроника' },
+  { value: 'Машиностроение', label: 'Машиностроение' },
+  // Добавьте другие виды товаров
+];
+
+const SupplierRegistration: React.FC = () => {
   const navigate = useNavigate();
-
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [username, setUsername] = useState('');
+  const [phoneNumber, setPhoneNumber] = useState('');
+  const [productTypes, setProductTypes] = useState<any[]>([]);
+  const [country, setCountry] = useState('');
 
-  const handleRegister = async (event: any) => {
-    event.preventDefault();
+  const countries = countryList().getData();
 
-    const response = await fetch('http://localhost:4000/api/register', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
+  const handleRegister = async (e: React.FormEvent) => {
+    e.preventDefault();
+
+    try {
+      await axios.post('http://localhost:4000/api/register', {
         email,
         password,
         role: 'supplier',
-        username: "supplier - " + email
-      }),
-    });
+        username,
+        phoneNumber,
+        productTypes: productTypes.map(p => p.value),
+        country,
+      }).then((response:any)=>{
+        navigate(`/supplier-profile/${response?.data?.user?._id}`);
 
-    if (response.ok) {
-      alert('Registration successful');
-    } else {
-      alert('Registration failed');
+      });
+
+    } catch (error) {
+      console.error('Registration error:', error);
     }
   };
 
-  const handleBack = () => {
-    navigate('/');
-  };
-
   return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      transition={{ duration: 0.5 }}
-      className="registration-container"
-    >
-      <motion.div
-        initial={{ y: -100 }}
-        animate={{ y: 0 }}
-        transition={{ type: 'spring', stiffness: 50 }}
-        className="registration-form"
-      >
-        <motion.button
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.9 }}
-          className="back-button"
-          onClick={handleBack}
-        >
-          Назад
-        </motion.button>
-        <h2>Supplier Registration</h2>
-        <form onSubmit={handleRegister}>
-          <motion.div
-            whileHover={{ scale: 1.1 }}
-            className="form-group"
-          >
-            <label>Email:</label>
-            <input
-              type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required
-            />
-          </motion.div>
-          <motion.div
-            whileHover={{ scale: 1.1 }}
-            className="form-group"
-          >
-            <label>Password:</label>
-            <input
-              type="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              required
-            />
-          </motion.div>
-          <motion.button
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.9 }}
-            type="submit"
-            className="submit-button"
-          >
-            Register
-          </motion.button>
-        </form>
-      </motion.div>
-    </motion.div>
+    <div className="supplier-registration">
+      <h2>Регистрация поставщика</h2>
+      <form onSubmit={handleRegister}>
+        <label>
+          Email:
+          <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
+        </label>
+        <label>
+          Пароль:
+          <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} required />
+        </label>
+        <label>
+          Имя пользователя:
+          <input type="text" value={username} onChange={(e) => setUsername(e.target.value)} required />
+        </label>
+        <label>
+          Номер телефона:
+          <input type="tel" value={phoneNumber} onChange={(e) => setPhoneNumber(e.target.value)} required />
+        </label>
+        <label>
+          Виды товаров:
+          <Select
+            options={productOptions}
+            isMulti
+            value={productTypes}
+            onChange={setProductTypes as any}
+          />
+        </label>
+        <label>
+          Страна:
+          <Select
+            options={countries}
+            value={countries.find(c => c.value === country)}
+            onChange={(e) => setCountry(e?.value || '')}
+          />
+        </label>
+        <button type="submit">Зарегистрироваться</button>
+      </form>
+    </div>
   );
 };
 
-export default SupplierPage;
+export default SupplierRegistration;

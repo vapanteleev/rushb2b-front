@@ -1,0 +1,63 @@
+/* src/components/SupplierProfile/SupplierProfile.css */
+
+.supplier-profile {
+    font-family: 'Arial', sans-serif;
+    margin: 20px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.supplier-profile h1 {
+    font-size: 2em;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.supplier-profile p {
+    font-size: 1.1em;
+    color: #666;
+    margin: 10px 0;
+}
+
+.supplier-profile p strong {
+    color: #333;
+}
+
+.supplier-profile .profile-section {
+    margin-bottom: 20px;
+}
+
+.profile-section h2 {
+    font-size: 1.5em;
+    color: #444;
+    margin-bottom: 10px;
+}
+
+.profile-section .profile-info {
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 6px;
+    border: 1px solid #ddd;
+}
+
+.profile-info div {
+    margin-bottom: 10px;
+}
+
+.button {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.button:hover {
+    background-color: #0056b3;
+}

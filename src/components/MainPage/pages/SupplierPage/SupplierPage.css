@@ -1,81 +1,50 @@
-.registration-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  background: linear-gradient(135deg, #6e8efb, #a777e3);
+/* SupplierRegistration.css */
+.supplier-registration {
+  max-width: 500px;
+  margin: 50px auto;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  font-family: 'Arial', sans-serif;
 }
 
-.registration-form {
-  background: #ffffff;
-  padding: 2rem;
-  border-radius: 1rem;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+.supplier-registration h2 {
   text-align: center;
-}
-
-.registration-form h2 {
-  margin-bottom: 1.5rem;
+  margin-bottom: 20px;
   color: #333;
 }
 
-.form-group {
-  margin-bottom: 1rem;
+.supplier-registration form {
+  display: flex;
+  flex-direction: column;
 }
 
-.form-group label {
-  display: block;
-  margin-bottom: 0.5rem;
+.supplier-registration label {
+  margin-bottom: 10px;
   color: #555;
 }
 
-.form-group input {
+.supplier-registration input,
+.supplier-registration select {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 20px;
   width: 100%;
-  padding: 0.5rem;
-  border: 1px solid #ddd;
-  border-radius: 0.25rem;
-  transition: border-color 0.3s;
 }
 
-.form-group input:focus {
-  border-color: #6e8efb;
-  outline: none;
-}
-
-.submit-button {
-  background: #6e8efb;
-  color: #fff;
-  padding: 0.75rem 1.5rem;
+.supplier-registration button {
+  padding: 10px;
+  background-color: #007bff;
+  color: white;
   border: none;
-  border-radius: 0.25rem;
+  border-radius: 4px;
   cursor: pointer;
-  transition: background 0.3s;
+  transition: background-color 0.3s;
 }
 
-.submit-button:hover {
-  background: #5a75e0;
-}
-
-.submit-button:active {
-  background: #4b66d4;
-}
-.back-button {
-  /* position: absolute; */
-  /* top: 1rem; */
-  left: 1rem;
-  background: #ff6b6b;
-  color: #fff;
-  padding: 0.5rem 1rem;
-  border: none;
-  border-radius: 0.25rem;
-  cursor: pointer;
-  /* transition: background 0.3s; */
-}
-
-.back-button:hover {
-  background: #ff4c4c;
-}
-
-.back-button:active {
-  background: #ff3b3b;
+.supplier-registration button:hover {
+  background-color: #0056b3;
 }
