@@ -16,9 +16,21 @@ const HomePage: React.FC = () => {
     const handleEnterClick = () => {
         navigate('/enter');
     };
+    async function testFirebase() {
+        const response = await fetch('https://us-central1-rushb2b-back.cloudfunctions.net/app/api/test', {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+
+        });
+        console.log(response, "response from firebase")
+
+    };
 
     return (
         <div className="home-page">
+            <button onClick={testFirebase}>test firebase</button>
             {/* <video autoPlay loop muted className="video-background">
                 <source src="/mock-industrial.mp4" type="video/mp4" />
                 Your browser does not support the video tag.
