@@ -39,7 +39,7 @@ const HomePage: React.FC = () => {
                 Your browser does not support the video tag.
             </video> */}
             <div className="hero-section">
-                <h1 className="company-name">RUSH B2B</h1>
+                <h1 className="company-name">GOAL: Global Operations and Logistics</h1>
                 <h3 className="company-slogan">Скорость, надежность и масштаб <br />для вашего международного B2B успеха</h3>
             </div>
             <div className="company-description">
